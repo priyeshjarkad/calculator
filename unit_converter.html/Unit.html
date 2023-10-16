@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="unit.css">
+    <title>Unit Converter</title>
+</head>
+<body>
+  <h1 class="Head">Unit Converter</h1>
+  <div class="container">  
+    <div class="Card">
+    <div class="length">
+      <h2>Length</h2>
+
+      <label for="fromValue">From:</label>
+      <input type="number" id="fromValue" name="fromValue" placeholder="Enter a value">
+      <select id="fromUnit">
+        <option value="meters">Meter</option>
+        <option value="feet">Feet</option>
+        <option value="inches">Inches</option>
+        <option value="Centimeter">Centimeter</option>
+        <option value="Kilometer">Kilometer</option>
+        <option value="Yard">Yard</option>
+      </select>
+    </div>
+    <div>
+      <label for="toValue">To:</label>
+      <input type="number" id="toValue" name="toValue" readonly>
+      <select id="toUnit">
+        <option value="meters">Meters</option>
+        <option value="feet">Feet</option>
+        <option value="inches">Inches</option>
+        <option value="Centimeter">Centimeter</option>
+        <option value="Kilometer">Kilometer</option>
+        <option value="Yard">Yard</option>
+      </select>
+    </div>
+    <button id="convertBtn" onclick="convert()">Convert</button>
+  </div>
+
+
+<div class="Card">
+  <div class="temp">
+    <h2>Temprature</h2>
+    <label for="fromInput">From:</label>
+    <input type="number" id="fromInput" name="fromInput" placeholder="Enter a value">
+    <select id="fromGiven">
+      <option value="Celsius">Celsius</option>
+      <option value="Kelvin">Kelvin</option>
+      <option value="Fahrenheit">Fahrenheit</option>
+    </select>
+  </div>
+  <div>
+    <label for="toFinal">To:</label>
+    <input type="number" id="toFinal" name="toFinal" readonly>
+    <select id="toOut">
+      <option value="Celsius">Celsius</option>
+      <option value="Kelvin">Kelvin</option>
+      <option value="Fahrenheit">Fahrenheit</option>
+    </select>
+  </div>
+  <button id="convertBtn" onclick="change()">Convert</button>
+</div>
+</div>
+
+
+<div class="container">
+<div class="Card">
+<div class="length">
+  <h2>Weight</h2>
+
+  <label for="wValue">From:</label>
+  <input type="number" id="wValue" name="wValue" placeholder="Enter a value">
+  <select id="wUnit">
+    <option value="Kilogram">Kilogram</option>
+    <option value="Gram">Gram</option>
+    <option value="Milligram">Milligram</option>
+    <option value="Pound">Pound</option>
+    <option value="Tonne">Tonne</option>  
+  </select>
+</div>
+<div>
+  <label for="wtValue">To:</label>
+  <input type="number" id="wtValue" name="wtValue" readonly>
+  <select id="wtUnit">
+    <option value="Kilogram">Kilogram</option>
+    <option value="Gram">Gram</option>
+    <option value="Milligram">Milligram</option>
+    <option value="Pound">Pound</option>
+    <option value="Tonne">Tonne</option>
+  </select>
+</div>
+<button id="convertBtn" onclick="Effect()">Convert</button>
+</div>
+<div class="Card">
+  <div class="length">
+    <h2>Time</h2>
+  
+    <label for="tValue">From:</label>
+    <input type="number" id="tValue" name="tValue" placeholder="Enter a value">
+    <select id="tUnit">
+      <option value="Day">Day</option>
+      <option value="Hour">Hour</option>
+      <option value="Minute">Minute</option>
+      <option value="Second">Second</option>
+      <option value="Millisecond">Millisecond</option>  
+    </select>
+  </div>
+  <div>
+    <label for="ttValue">To:</label>
+    <input type="number" id="ttValue" name="ttValue" readonly>
+    <select id="ttUnit">
+      <option value="Day">Day</option>
+      <option value="Hour">Hour</option>
+      <option value="Minute">Minute</option>
+      <option value="Second">Second</option>
+      <option value="Millisecond">Millisecond</option>
+    </select>
+  </div>
+  <button id="convertBtn" onclick="Swap()">Convert</button>
+  </div>
+  </div>
+</main>
+</section>
+</div>
+</section>
+</div>
+<!-- </canvas> -->
+</div>
+<script src="./desktop-only-app.min.js.download"></script>
+<script>
+  function convert() {
+    const fromValue = document.getElementById('fromValue').value;
+    const fromUnit = document.getElementById('fromUnit').value;
+    const toUnit = document.getElementById('toUnit').value;
+  
+    const toValue = convertUnits(fromValue, fromUnit, toUnit);
+    document.getElementById('toValue').value = toValue;
+  }
+function convertUnits(value, fromUnit, toUnit) {
+  if (fromUnit === 'meters') {
+    if (toUnit === 'feet') {
+      return value * 3.28084;
+    } 
+    else if (toUnit === 'inches') {
+      return value * 39.3701;
+    }
+    else if (toUnit === 'Centimeter') {
+      return value * 100;
+    }
+    else if (toUnit === 'Kilometer') {
+      return value / 1000;
+    }
+    else if (toUnit === 'Yard') {
+      return value * 1.094;
+    }
+    else {
+        return value;
+    }
+  }
+
+  else if (fromUnit === 'feet') {
+    if (toUnit === 'meters') {
+      return value * 0.3048;
+    } 
+    else if (toUnit === 'inches') {
+      return value * 12;
+    } 
+    else if (toUnit === 'Centimeter') {
+      return value * 30.48;
+    }
+    else if (toUnit === 'Kilometer') {
+      return value / 3281;
+    }
+    else if (toUnit === 'Yard') {
+      return value / 3;
+    }
+    else {
+      return value;
+    }
+  } 
+  else if (fromUnit === 'inches') {
+    if (toUnit === 'meters') {
+      return value * 0.0254;
+    } 
+    else if (toUnit === 'feet') {
+      return value * 0.0833333;
+    }
+    else if (toUnit === 'Centimeter') {
+      return value * 2.54;
+    }
+    else if (toUnit === 'Kilometer') {
+      return value / 39370;
+    }
+    else if (toUnit === 'Yard') {
+      return value / 36;
+    } 
+    else {
+      return value;
+    }
+  }
+    else if (fromUnit === 'Centimeter') {
+    if (toUnit === 'meters') {
+      return value * 100;
+    } 
+    else if (toUnit === 'feet') {
+      return value / 30.48 ;
+    }
+    else if (toUnit === 'inches') {
+      return value / 2.54;
+    } 
+    else if (toUnit === 'Kilometer') {
+      return value / 100000;
+    }
+    else if (toUnit === 'Yard') {
+      return value / 91.44;
+    }
+}
+    else if (fromUnit === 'Kilometer') {
+    if (toUnit === 'meters') {
+      return value * 1000;
+    } 
+    else if (toUnit === 'inches') {
+      return value * 39370;
+    } 
+    else if (toUnit === 'Centimeter') {
+      return value * 100000;
+    }
+    else if (toUnit === 'feet') {
+      return value * 3281;
+    }
+    else if (toUnit === 'Yard') {
+      return value * 1094;
+    }
+    else {
+      return value;
+    }
+  }
+  else if (fromUnit === 'Yard') {
+    if (toUnit === 'meters') {
+      return value / 1.094;
+    } 
+    else if (toUnit === 'inches') {
+      return value * 36;
+    } 
+    else if (toUnit === 'Centimeter') {
+      return value * 91.44;
+    }
+    else if (toUnit === 'feet') {
+      return value * 3;
+    }
+    else if (toUnit === 'Kilometer') {
+      return value / 1094;
+    }
+    else {
+      return value;
+    }
+  }
+    else {
+      return value;
+    }
+  } 
+  function change() {
+    const fromInput = document.getElementById('fromInput').value;
+    const fromGiven = document.getElementById('fromGiven').value;
+    const toOut = document.getElementById('toOut').value;
+    const toFinal = convertTemp(fromInput, fromGiven, toOut);
+    document.getElementById('toFinal').value = toFinal;
+  }
+  function convertTemp(value, fromGiven, toOut) {
+  if (fromGiven === 'Celsius') {
+    if (toOut === 'Fahrenheit') {
+      return (value * 9/5) + 32;
+    } else if (toOut === 'Kelvin') {
+      return (value*1) + 273.15;
+    } else {
+      return value;
+    }
+  } else if (fromGiven === 'Fahrenheit') {
+    if (toOut === 'Celsius') {
+      return (value - 32) * 5/9;
+    } else if (toOut === 'Kelvin') {
+      return (value - 32) * 5/9 + 273.15;
+    } else {
+      return value;
+    }
+  } else if (fromGiven === 'Kelvin') {
+    if (toOut === 'Celsius') {
+      return value - 273.15;
+    } else if (toOut === 'Fahrenheit') {
+      return (value - 273.15) * 9/5 + 32;
+    } else {
+      return value;
+    }
+  } else {
+    return null; 
+  }
+}
+
+
+function Effect() {
+    const wValue = document.getElementById('wValue').value;
+    const wUnit = document.getElementById('wUnit').value;
+    const wtUnit = document.getElementById('wtUnit').value;
+  
+    const wtValue = convertWeight (wValue, wUnit, wtUnit);
+    document.getElementById('wtValue').value = wtValue;
+  }
+function convertWeight (value, wUnit, wtUnit) {
+  if (wUnit === 'Kilogram') {
+    if (wtUnit === 'Gram') {
+      return value * 1000;
+    } 
+    else if (wtUnit === 'Milligram') {
+      return value * 1e+6;
+    }
+    else if (wtUnit === 'Pound') {
+      return value * 2.205;
+    }
+    else if (wtUnit === 'Tonne') {
+      return value / 1000;
+    }
+    else {
+        return value;
+    }
+  }
+  if (wUnit === 'Gram') {
+    if (wtUnit === 'Kilogram') {
+      return value / 1000;
+    } 
+    else if (wtUnit === 'Milligram') {
+      return value * 1000;
+    }
+    else if (wtUnit === 'Pound') {
+      return value / 453.6;
+    }
+    else if (wtUnit === 'Tonne') {
+      return value / 1e+6;
+    }
+    else {
+        return value;
+    }
+  }
+  if (wUnit === 'Milligram') {
+    if (wtUnit === 'Kilogram') {
+      return value / 1e+6;
+    } 
+    else if (wtUnit === 'Gram') {
+      return value / 1000;
+    }
+    else if (wtUnit === 'Pound') {
+      return value / 453592;
+    }
+    else if (wtUnit === 'Tonne') {
+      return value / 1e+9;
+    }
+    else {
+        return value;
+    }
+  }
+  if (wUnit === 'Pound') {
+    if (wtUnit === 'Kilogram') {
+      return value / 2.205;
+    } 
+    else if (wtUnit === 'Milligram') {
+      return value * 453592;
+    }
+    else if (wtUnit === 'Gram') {
+      return value * 453.6;
+    }
+    else if (wtUnit === 'Tonne') {
+      return value / 2205;
+    }
+    else {
+        return value;
+    }
+  }
+  if (wUnit === 'Tonne') {
+    if (wtUnit === 'Kilogram') {
+      return value * 1000;
+    } 
+    else if (wtUnit === 'Milligram') {
+      return value * 1e+9;
+    }
+    else if (wtUnit === 'Gram') {
+      return value * 1e+6;
+    }
+    else if (wtUnit === 'Pound') {
+      return value * 2205;
+    }
+    else {
+        return value;
+    }
+  }
+}
+
+
+
+function Swap() {
+    const tValue = document.getElementById('tValue').value;
+    const tUnit = document.getElementById('tUnit').value;
+    const ttUnit = document.getElementById('ttUnit').value;
+  
+    const ttValue = convertTime (tValue, tUnit, ttUnit);
+    document.getElementById('ttValue').value = ttValue;
+  }
+
+  function convertTime (value, tUnit, ttUnit) {
+  if (tUnit === 'Day') {
+    if (ttUnit === 'Hour') {
+      return value * 24;
+    } 
+    else if (ttUnit === 'Minute') {
+      return value * 1440;
+    }
+    else if (ttUnit === 'Second') {
+      return value * 86400;
+    }
+    else if (ttUnit === 'Millisecond') {
+      return value * 8.64e+7;
+    }
+    else {
+        return value;
+    }
+  }
+  if (tUnit === 'Hour') {
+    if (ttUnit === 'Day') {
+      return value / 24;
+    } 
+    else if (ttUnit === 'Minute') {
+      return value * 60;
+    }
+    else if (ttUnit === 'Second') {
+      return value * 3600;
+    }
+    else if (ttUnit === 'Millisecond') {
+      return value * 3.6e+6;
+    }
+    else {
+        return value;
+    }
+  }
+  if (tUnit === 'Minute') {
+    if (ttUnit === 'Hour') {
+      return value / 60;
+    } 
+    else if (ttUnit === 'Day') {
+      return value / 1440;
+    }
+    else if (ttUnit === 'Second') {
+      return value * 60;
+    }
+    else if (ttUnit === 'Millisecond') {
+      return value * 60000;
+    }
+    else {
+        return value;
+    }
+  }
+  if (tUnit === 'Second') {
+    if (ttUnit === 'Hour') {
+      return value / 3600;
+    } 
+    else if (ttUnit === 'Minute') {
+      return value / 60;
+    }
+    else if (ttUnit === 'Day') {
+      return value / 86400;
+    }
+    else if (ttUnit === 'Millisecond') {
+      return value * 1000;
+    }
+    else {
+        return value;
+    }
+  }
+  if (tUnit === 'Millisecond') {
+    if (ttUnit === 'Hour') {
+      return value / 3.6e+6;
+    } 
+    else if (ttUnit === 'Minute') {
+      return value / 60000;
+    }
+    else if (ttUnit === 'Second') {
+      return value / 1000;
+    }
+    else if (ttUnit === 'Day') {
+      return value / 8.64e+7;
+    }
+    else {
+        return value;
+    }
+  }
+}
+
+</script>
+</body>
+</html>

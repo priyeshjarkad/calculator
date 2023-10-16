@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+  }
+ 
+
+  h1 {
+    text-align: center;
+    background: linear-gradient(transparent,#c5e1ff,#b2d7ff,#afd6ff,#a1ceff,transparent);
+    padding: 15px 0px;
+  }
+  
+  div {
+    margin: 10px 0;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  input[type="number"] {
+    width: 200px;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: aliceblue;
+    border: 2px solid #007bff;
+  }
+  
+  label{
+    font-size: 20px;
+  }
+
+  select {
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+  }
+  
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 15px 160px ;
+  }
+  
+  button:hover {
+    background-color: #0062cc;
+  }
+
+  .Card{
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    margin-left: 200px;
+    background: linear-gradient(transparent,#c5e1ff,#b2d7ff,#afd6ff,#a1ceff,transparent);
+    border: 2px solid #0062cc;
+    padding: 20px 20px;
+    border-radius: 15px;
+  }
+
+  .container{
+    display: flex;
+  }
+  .all{
+    pointer-events: all;
+    
+  }
+
+
+
+  #index_page{
+        background-color: black;
+        color: white;
+        overflow: hidden;
+        height: 100vh;
+        padding-top: 35vh;
+        z-index: 1;
+    }
+
+    #index_page{
+        overflow: hidden;
+        height: 100vh;
+        padding-top: 35vh;
+        z-index: 1;
+    }
+    #smoke_canvas{
+        height: 100vh;
+        pointer-events: all;
+        opacity: 1;
+    }
